@@ -1,13 +1,18 @@
 const $ = window.$;
 $(function () {
-  function checkers () {
-    $('div.amenities li input:checked').map(function () {
-      $('div.amenities h4').text($(this).attr('data-name'));
-      console.log($(this).attr('data-name'));
+  const lili = {};
+  function check () {
+    $('div.amenities li input').map(function () {
+      if ($(this).is(':checked')) {
+        lili[($(this).attr('data-id'))] = $(this).attr('data-name');
+      } else {
+        delete lili[($(this).attr('data-id'))];
+      }
+      $('div.amenities h4').html(Object.values(lili).join(', ') || ' ');
     });
   }
-  checkers();
+  check();
   $('div.amenities li input').change(function () {
-    checkers();
+    check();
   });
 });
