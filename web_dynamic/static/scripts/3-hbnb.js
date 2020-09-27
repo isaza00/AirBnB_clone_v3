@@ -48,7 +48,6 @@ $(function () {
             <div class="description">` + place.description + `</div>
             </article>
         `);
-        console.log(place.price_by_night);
       }
     }
   });
