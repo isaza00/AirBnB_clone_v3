@@ -29,7 +29,6 @@ $(function () {
     dataType: 'json',
     url: 'http://0.0.0.0:5001/api/v1/places_search',
     success: function (response) {
-      console.log(response);
       for (const place of response) {
         $('section.places').append(`
           <article>
